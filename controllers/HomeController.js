@@ -8,10 +8,10 @@
  *  @since          : 16-04-2018
  ******************************************************************************/
 app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filter) {
-  var selectedManufacturer = [];
-  var selectedStorage = [];
-  var selectedOs = [];
-  var selectedCamera = [];
+  var selectedManufacturerItems = [];
+  var selectedStorageItems = [];
+  var selectedOsItems = [];
+  var selectedCameraItems = [];
   $scope.toggleLeft = buildToggler('left');
   $scope.toggleRight = buildToggler('right');
 
@@ -39,46 +39,46 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
    * @param {string} category is a string from list of categories
    * @param {string} keyword is a string which is been checked
    */
-  $scope.toggle = function(category, keyword) {
+  $scope.toggleFunction = function(category, keyword) {
     switch (category) {
       case 'manufacturer':
-        var indexManufacturer = selectedManufacturer.indexOf(keyword);
-        if (indexManufacturer > -1) {
-          selectedManufacturer.splice(indexManufacturer, 1);
+        var indexOfManufacturer = selectedManufacturerItems.indexOf(keyword);
+        if (indexOfManufacturer > -1) {
+          selectedManufacturerItems.splice(indexOfManufacturer, 1);
         } else {
-          selectedManufacturer.push(keyword);
+          selectedManufacturerItems.push(keyword);
         }
         break;
       case 'storage':
-        var indexStorage = selectedStorage.indexOf(keyword);
-        if (indexStorage > -1) {
-          selectedStorage.splice(indexStorage, 1);
+        var indexOfStorage = selectedStorageItems.indexOf(keyword);
+        if (indexOfStorage > -1) {
+          selectedStorageItems.splice(indexOfStorage, 1);
         } else {
-          selectedStorage.push(keyword);
+          selectedStorageItems.push(keyword);
         }
         break;
       case 'os':
-        var indexOs = selectedOs.indexOf(keyword);
-        if (indexOs > -1) {
-          selectedOs.splice(indexOs, 1);
+        var indexOfOs = selectedOsItems.indexOf(keyword);
+        if (indexOfOs > -1) {
+          selectedOsItems.splice(indexOfOs, 1);
         } else {
-          selectedOs.push(keyword);
+          selectedOsItems.push(keyword);
         }
         break;
       case 'camera':
-        var indexCamera = selectedCamera.indexOf(keyword);
-        if (indexCamera > -1) {
-          selectedCamera.splice(indexCamera, 1);
+        var indexOfCamera = selectedCameraItems.indexOf(keyword);
+        if (indexOfCamera > -1) {
+          selectedCameraItems.splice(indexOfCamera, 1);
         } else {
-          selectedCamera.push(keyword);
+          selectedCameraItems.push(keyword);
         }
         break;
     }
   };
-  $scope.arrayManufacturer = selectedManufacturer;
-  $scope.arrayStorage = selectedStorage;
-  $scope.arrayOs = selectedOs;
-  $scope.arrayCamera = selectedCamera;
+  $scope.arrayManufacturer = selectedManufacturerItems;
+  $scope.arrayStorage = selectedStorageItems;
+  $scope.arrayOs = selectedOsItems;
+  $scope.arrayCamera = selectedCameraItems;
 });
 
 /*
@@ -95,14 +95,14 @@ app.filter('filteredString', function() {
    * @param {array} arrayCamera is list camera of selected options
    * @return {array} list of filtered items.
    */
-  return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
-    var filtered = [];
+   return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
+     var filtered = [];
     var temparray = [];
 
-    if (x != undefined)
-    {
-      if (arrayManufacturer.length > 0 )
-      {
+    if (x != undefined) {
+
+      if (arrayManufacturer.length > 0 || arrayStorage.length > 0 || arrayOs.length > 0 || arrayCamera.length > 0) {
+
         for (var j = 0; j < x.length; j++) {
           var item = x[j];
 

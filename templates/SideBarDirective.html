@@ -1,18 +1,17 @@
-<!-- /**********************************************************************************
+<!-- /***********************************************************************************
  *  Purpose         : Side bar custom directive
  *  @file           : SideBarDirective.html
  *  @author         : Madhuri chaudhari
  *  @version        : 1.0
  *  @since          : 16-04-2018
- **********************************************************************************/ -->
-<section layout="row">
-  <md-sidenav style="margin-top:4.0em;width:200px;position: fixed;" class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+ ****************************************************************************************/ -->
+ <md-sidenav style="margin-top:4.0em;width:200px;position: fixed;" class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
     <md-content flex layout-padding>
       <div flex="100" layout-align="center" layout="column">
         <fieldset class="standard">
-          <legend>Manufacturer </legend>
+          <legend>Manufacturer</legend>
           <div ng-repeat="x in jsonRecord  | unique:'specs.manufacturer' | orderBy: 'specs.manufacturer'">
-            <md-checkbox ng-click='toggle("manufacturer",x.specs.manufacturer)' aria-label="Manufacturer">
+            <md-checkbox ng-click='toggleFunction("manufacturer",x.specs.manufacturer)' aria-label="Manufacturer">
             </md-checkbox>
             {{ x.specs.manufacturer+" " }}
           </div>
@@ -21,7 +20,7 @@
         <fieldset class="standard">
           <legend>Storage </legend>
           <div ng-repeat="x in jsonRecord| unique:'specs.storage'|orderBy: 'specs.storage'">
-            <md-checkbox ng-click='toggle("storage",x.specs.storage)' aria-label="Storage">
+            <md-checkbox ng-click='toggleFunction("storage",x.specs.storage)' aria-label="Storage">
               {{ x.specs.storage+" " }}
             </md-checkbox>
 
@@ -31,8 +30,7 @@
         <fieldset class="standard">
           <legend>OS </legend>
           <div ng-repeat="x in jsonRecord | unique :'specs.os' | orderBy : 'specs.os'">
-            <!-- <md-checkbox md-no-ink ng-model="hasInk1" aria-label="No Ink Effects"> -->
-            <md-checkbox ng-click='toggle("os",x.specs.os)'  aria-label="OS">
+            <md-checkbox ng-click='toggleFunction("os",x.specs.os)'  aria-label="OS">
               {{ x.specs.os+" " }}
             </md-checkbox>
 
@@ -42,13 +40,10 @@
         <fieldset class="standard">
           <legend>Camera </legend>
           <div ng-repeat="x in jsonRecord | unique:'specs.camera' | orderBy:'specs.camera'">
-            <md-checkbox ng-click='toggle("camera",x.specs.camera)'  aria-label="Camera">
+            <md-checkbox ng-click='toggleFunction("camera",x.specs.camera)'  aria-label="Camera">
               {{ x.specs.camera+" " }}Mpx
             </md-checkbox>
           </div>
         </fieldset>
       </div>
   </md-sidenav>
-
-
-</section>
