@@ -1,0 +1,37 @@
+<!-- /**********************************************************************************
+ *  Purpose         : Login page for the mobile app
+ *  @file           : Login.html
+ *  @author         : Madhuri chaudhari
+ *  @version        : 1.0
+ *  @since          : 16-04-2018
+ **********************************************************************************/ -->
+<div layout="column" layout-align="center center">
+  <center>
+    <md-card style="border;border-color:black;width:350px">
+      <md-toolbar>
+        <h2>Login</h2>
+      </md-toolbar>
+      <form name="userForm">
+        <md-input-container >
+          <label>Email</label>
+          <input name="email" ng-model="email" required md-maxlength="25" minlength="10"
+            ng-pattern='/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/' style="display:block;">
+          <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty" >
+            <div ng-message="required"></div>
+          </div>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" name="password" ng-model="password" required md-maxlength="25" minlength="8">
+          <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty" style="display:block;">
+            <div ng-message="required"></div>
+          </div>
+        </md-input-container>
+
+        <center>
+          <md-button ng-disabled="!userForm.$valid" class="md-primary md-raised login_button" type="submit" ng-click="home()">Login</md-button>
+        </center>
+      </form>
+  </center>
+</div>
