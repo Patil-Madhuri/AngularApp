@@ -9,7 +9,7 @@
  ******************************************************************************/
 app.directive('sidebar', function() {
   return {
-    restrict:'EA',
+    restrict: 'EA',
     templateUrl: 'templates/SideBarDirective.html'
   };
 });

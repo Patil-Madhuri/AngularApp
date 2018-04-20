@@ -1,5 +1,5 @@
 /******************************************************************************
- *  Purpose         : Login controller 
+ *  Purpose         : Login controller
  *  @description
  *  @file           : LoginController.js
  *  @overview       : controller for Login.
@@ -9,8 +9,8 @@
  ******************************************************************************/
 app.controller('loginController', function($scope,$state)
 {
-  $scope.email = "";
-  $scope.password="";
+  $scope.email = "madhuri@gmail.com";
+  $scope.password="12345678";
   $scope.home = function()
   {
        $state.go('home');

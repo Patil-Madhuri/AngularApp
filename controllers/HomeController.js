@@ -33,44 +33,44 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
    * @description auto load the dashboard.html inside nested ui-view.
    */
   $state.go('home.dashboard');
-
+  
   /*
    * @description function to maintain checked item into selected list.
    * @param {string} category is a string from list of categories
-   * @param {string} keyword is a string which is been checked
+   * @param {string} selectedItem is a string which is been checked
    */
-  $scope.toggleFunction = function(category, keyword) {
+  $scope.toggleFunction = function(category, selectedItem) {
     switch (category) {
       case 'manufacturer':
-        var indexOfManufacturer = selectedManufacturerItems.indexOf(keyword);
+        var indexOfManufacturer = selectedManufacturerItems.indexOf(selectedItem);
         if (indexOfManufacturer > -1) {
           selectedManufacturerItems.splice(indexOfManufacturer, 1);
         } else {
-          selectedManufacturerItems.push(keyword);
+          selectedManufacturerItems.push(selectedItem);
         }
         break;
       case 'storage':
-        var indexOfStorage = selectedStorageItems.indexOf(keyword);
+        var indexOfStorage = selectedStorageItems.indexOf(selectedItem);
         if (indexOfStorage > -1) {
           selectedStorageItems.splice(indexOfStorage, 1);
         } else {
-          selectedStorageItems.push(keyword);
+          selectedStorageItems.push(selectedItem);
         }
         break;
       case 'os':
-        var indexOfOs = selectedOsItems.indexOf(keyword);
+        var indexOfOs = selectedOsItems.indexOf(selectedItem);
         if (indexOfOs > -1) {
           selectedOsItems.splice(indexOfOs, 1);
         } else {
-          selectedOsItems.push(keyword);
+          selectedOsItems.push(selectedItem);
         }
         break;
       case 'camera':
-        var indexOfCamera = selectedCameraItems.indexOf(keyword);
+        var indexOfCamera = selectedCameraItems.indexOf(selectedItem);
         if (indexOfCamera > -1) {
           selectedCameraItems.splice(indexOfCamera, 1);
         } else {
-          selectedCameraItems.push(keyword);
+          selectedCameraItems.push(selectedItem);
         }
         break;
     }
@@ -83,7 +83,7 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
 
 /*
  * @description filter for getting list of items based on selected options.
- * @return {array} filtered list using the selected items .
+ * @return {array} filteredArray list using the selected items .
  */
 
 app.filter('filteredString', function() {
@@ -93,14 +93,13 @@ app.filter('filteredString', function() {
    * @param {array} arrayStorage is list of storage selected options
    * @param {array} arrayOs is list of Os selected options
    * @param {array} arrayCamera is list camera of selected options
-   * @return {array} list of filtered items.
+   * @return {array} list of filteredArray items.
    */
-   return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
-     var filtered = [];
+  return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
+    var filteredArray = [];
     var temparray = [];
 
     if (x != undefined) {
-
       if (arrayManufacturer.length > 0 || arrayStorage.length > 0 || arrayOs.length > 0 || arrayCamera.length > 0) {
 
         for (var j = 0; j < x.length; j++) {
@@ -110,13 +109,16 @@ app.filter('filteredString', function() {
             var selectedItem = arrayManufacturer[i];
             if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
               item.specs.os == selectedItem || item.specs.camera == selectedItem) {
-              filtered.push(item);
+              filteredArray.push(item);
+
             }
           }
         }
-        if (filtered.length > 0) {
-          temparray = filtered;
-          filtered = [];
+
+        if (filteredArray.length > 0) {
+          temparray = filteredArray;
+
+          filteredArray = [];
         } else {
           temparray = x;
         }
@@ -129,12 +131,12 @@ app.filter('filteredString', function() {
               var selectedItem = arrayStorage[i];
               if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
                 item.specs.os == selectedItem || item.specs.camera == selectedItem) {
-                filtered.push(item);
+                filteredArray.push(item);
               }
             }
           }
-          temparray = filtered;
-          filtered = [];
+          temparray = filteredArray;
+          filteredArray = [];
         }
 
         if (arrayOs.length > 0) {
@@ -145,12 +147,12 @@ app.filter('filteredString', function() {
               var selectedItem = arrayOs[i];
               if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
                 item.specs.os == selectedItem || item.specs.camera == selectedItem) {
-                filtered.push(item);
+                filteredArray.push(item);
               }
             }
           }
-          temparray = filtered;
-          filtered = [];
+          temparray = filteredArray;
+          filteredArray = [];
         }
 
         if (arrayCamera.length > 0) {
@@ -161,18 +163,19 @@ app.filter('filteredString', function() {
               var selectedItem = arrayCamera[i];
               if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
                 item.specs.os == selectedItem || item.specs.camera == selectedItem) {
-                filtered.push(item);
+                filteredArray.push(item);
               }
             }
 
           }
-          temparray = filtered;
-          filtered = [];
+          temparray = filteredArray;
+          filteredArray = [];
         }
       } else {
         temparray = x;
       }
     }
+
     return temparray;
   };
 });
