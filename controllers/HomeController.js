@@ -33,10 +33,19 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
    * @description auto load the dashboard.html inside nested ui-view.
    */
   $state.go('home.dashboard');
-
-  $scope.isVisible = false;
-  $scope.ShowHide = function() {
+  var count;
+  if(count %2 == 0)
+  {
+    $scope.isVisible = false;
+  }
+  else
+   {
+     $scope.isVisible = true;
+   }
+  $scope.ShowHide = function()
+  {
     $scope.isVisible = !$scope.isVisible;
+    count++;
   }
   /*
    * @description function to maintain checked item into selected list.
@@ -111,10 +120,9 @@ app.filter('filteredString', function() {
 
           for (var i = 0; i < arrayManufacturer.length; i++) {
             var selectedItem = arrayManufacturer[i];
-            if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
-              item.specs.os == selectedItem || item.specs.camera == selectedItem) {
+            if (item.specs.manufacturer == selectedItem)
+             {
               filteredArray.push(item);
-
             }
           }
         }
@@ -133,8 +141,7 @@ app.filter('filteredString', function() {
 
             for (var i = 0; i < arrayStorage.length; i++) {
               var selectedItem = arrayStorage[i];
-              if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
-                item.specs.os == selectedItem || item.specs.camera == selectedItem) {
+              if (item.specs.storage == selectedItem) {
                 filteredArray.push(item);
               }
             }
@@ -149,8 +156,7 @@ app.filter('filteredString', function() {
 
             for (var i = 0; i < arrayOs.length; i++) {
               var selectedItem = arrayOs[i];
-              if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
-                item.specs.os == selectedItem || item.specs.camera == selectedItem) {
+              if (item.specs.os == selectedItem) {
                 filteredArray.push(item);
               }
             }
@@ -165,12 +171,10 @@ app.filter('filteredString', function() {
 
             for (var i = 0; i < arrayCamera.length; i++) {
               var selectedItem = arrayCamera[i];
-              if (item.specs.manufacturer == selectedItem || item.specs.storage == selectedItem ||
-                item.specs.os == selectedItem || item.specs.camera == selectedItem) {
+              if (item.specs.camera == selectedItem) {
                 filteredArray.push(item);
               }
             }
-
           }
           temparray = filteredArray;
           filteredArray = [];
@@ -179,7 +183,6 @@ app.filter('filteredString', function() {
         temparray = x;
       }
     }
-
     return temparray;
   };
 });

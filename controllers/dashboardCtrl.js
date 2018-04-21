@@ -11,7 +11,7 @@ app.controller('dashboardCtrl', function($scope, $mdDialog) {
   $scope.showDialog = function(clickEvent, item) {
     $mdDialog.show({
       locals: {
-        mobileData: item
+        mobileData : item
       },
       controller: DialogController,
       templateUrl: 'templates/mobileDialog.html',

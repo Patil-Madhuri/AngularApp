@@ -8,12 +8,12 @@
 
  <md-sidenav style="margin-top:4.0em;width:200px;position: fixed;" class="md-sidenav-left" md-component-id="left"
  md-disable-backdrop md-whiteframe="4" ng-hide="isVisible">
-    <md-content flex layout-padding>
+    <md-content flex layout-padding >
       <div flex="100" layout-align="center" layout="column">
         <fieldset class="standard">
           <legend>Manufacturer</legend>
           <div ng-repeat="x in jsonRecord  | unique:'specs.manufacturer' | orderBy: 'specs.manufacturer'">
-            <md-checkbox ng-click='toggleFunction("manufacturer",x.specs.manufacturer)' aria-label="Manufacturer">
+            <md-checkbox  ng-click='toggleFunction("manufacturer",x.specs.manufacturer)' aria-label="Manufacturer">
             </md-checkbox>
             {{ x.specs.manufacturer+" " }}
           </div>
