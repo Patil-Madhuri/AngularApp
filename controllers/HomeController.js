@@ -7,17 +7,17 @@
  *  @version        : 1.0
  *  @since          : 16-04-2018
  ******************************************************************************/
-app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filter) {
+app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filter)
+{
   var selectedManufacturerItems = [];
   var selectedStorageItems = [];
   var selectedOsItems = [];
   var selectedCameraItems = [];
   $scope.toggleLeft = buildToggler('left');
   $scope.toggleRight = buildToggler('right');
-
   function buildToggler(componentId) {
     return function() {
-      $mdSidenav(componentId).toggle();
+      $mdSidenav(componentId).open();
     };
   }
   $scope.sendLogin = function() {
@@ -33,7 +33,11 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
    * @description auto load the dashboard.html inside nested ui-view.
    */
   $state.go('home.dashboard');
-  
+
+  $scope.isVisible = false;
+  $scope.ShowHide = function() {
+    $scope.isVisible = !$scope.isVisible;
+  }
   /*
    * @description function to maintain checked item into selected list.
    * @param {string} category is a string from list of categories

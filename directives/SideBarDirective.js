@@ -10,6 +10,7 @@
 app.directive('sidebar', function() {
   return {
     restrict: 'EA',
-    templateUrl: 'templates/SideBarDirective.html'
+    templateUrl: 'templates/SideBarDirective.html',
+    controller : 'homeCtrl'
   };
 });
