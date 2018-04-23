@@ -92,6 +92,14 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
   $scope.arrayStorage = selectedStorageItems;
   $scope.arrayOs = selectedOsItems;
   $scope.arrayCamera = selectedCameraItems;
+
+  // $scope.stringOfAnyType = function (List<String> string)
+  // {
+  //     if (item.specs.string == selectedItem)
+  //      {
+  //       filteredArray.push(item);
+  //      }
+  //   }
 });
 
 /*
@@ -108,12 +116,14 @@ app.filter('filteredString', function() {
    * @param {array} arrayCamera is list camera of selected options
    * @return {array} list of filteredArray items.
    */
-  return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
+  return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera)
+  {
     var filteredArray = [];
     var temparray = [];
-
-    if (x != undefined) {
-      if (arrayManufacturer.length > 0 || arrayStorage.length > 0 || arrayOs.length > 0 || arrayCamera.length > 0) {
+    if (x != undefined)
+    {
+      if (arrayManufacturer.length > 0 || arrayStorage.length > 0 || arrayOs.length > 0 || arrayCamera.length > 0)
+      {
 
         for (var j = 0; j < x.length; j++) {
           var item = x[j];
@@ -123,13 +133,12 @@ app.filter('filteredString', function() {
             if (item.specs.manufacturer == selectedItem)
              {
               filteredArray.push(item);
-            }
+             }
           }
         }
 
         if (filteredArray.length > 0) {
           temparray = filteredArray;
-
           filteredArray = [];
         } else {
           temparray = x;
@@ -153,7 +162,6 @@ app.filter('filteredString', function() {
         if (arrayOs.length > 0) {
           for (var j = 0; j < temparray.length; j++) {
             var item = temparray[j];
-
             for (var i = 0; i < arrayOs.length; i++) {
               var selectedItem = arrayOs[i];
               if (item.specs.os == selectedItem) {
