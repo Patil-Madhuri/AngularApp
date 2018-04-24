@@ -13,7 +13,7 @@ app.controller('dashboardCtrl', function($scope, $mdDialog) {
       locals: {
         mobileData : item
       },
-      controller: DialogController,
+      controller: dialogController,
       templateUrl: 'templates/mobileDialog.html',
       parent: angular.element(document.body),
       targetEvent: clickEvent,
@@ -28,7 +28,7 @@ app.controller('dashboardCtrl', function($scope, $mdDialog) {
     * @param {service} $mdDialog is a service
     * @param {object} mobileData clicked object data
     */
-  function DialogController($scope, $mdDialog, mobileData) {
+  function dialogController($scope, $mdDialog, mobileData) {
     $scope.mobileData = mobileData;
     $scope.cancel = function() {
       $mdDialog.cancel();

@@ -1,0 +1,59 @@
+/*-----------------------
+	CSS for Register Page
+------------------------*/
+.registerPage
+{
+  border-color:black;
+  width:350px
+}
+
+/*-----------------
+	CSS for login page
+------------------*/
+.loginCard
+{
+    border;
+  border-color:black;
+  display : block;
+  width:350px;
+}
+.loginForm
+{
+  display:block;
+}
+
+/*------------------------------
+	CSS for view the large image
+--------------------------------*/
+.largeImage
+{
+  margin:auto;
+   max-width:100%;
+   align-self:center;
+}
+
+/*------------------
+	CSS for Side bar
+--------------------*/
+.md-sidenav-left
+{
+  margin-top:4.0em;
+  width:200px;
+  position: fixed;
+}
+
+/*------------------
+	CSS for tool Bar
+-------------------*/
+.toolBar
+{
+position:fixed;
+}
+
+/*------------------------
+	CSS for dashboard card
+-------------------------*/
+.dashboardCard
+{
+  margin-top:2.0em;
+}

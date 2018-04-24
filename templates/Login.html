@@ -7,15 +7,15 @@
  **********************************************************************************/ -->
 <div layout="column" layout-align="center center">
   <center>
-    <md-card style="border;border-color:black;width:350px">
+    <md-card class="loginCard">
       <md-toolbar>
         <h2>Login</h2>
       </md-toolbar>
-      <form name="userForm">
+      <form name="userForm" class="loginForm">
         <md-input-container >
           <label>Email</label>
           <input name="email" ng-model="email" required md-maxlength="25" minlength="10"
-            ng-pattern='/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/' style="display:block;">
+            ng-pattern='/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/' >
           <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty" >
             <div ng-message="required"></div>
           </div>
@@ -24,7 +24,7 @@
         <md-input-container>
           <label>Password</label>
           <input type="password" name="password" ng-model="password" required md-maxlength="25" minlength="8">
-          <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty" style="display:block;">
+          <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty" >
             <div ng-message="required"></div>
           </div>
         </md-input-container>
