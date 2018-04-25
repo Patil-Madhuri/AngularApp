@@ -128,10 +128,12 @@ app.filter('filteredString', function() {
         temparray = x;
       }
 
+      console.log("temparray",temparray);
+
       if (arrayStorage.length > 0) {
         for (var j = 0; j < temparray.length; j++) {
           var item = temparray[j];
-          filteredArray = loopingOfArray(arrayStorage, 'storage', x);
+          filteredArray = loopingOfArray(arrayStorage, 'storage', temparray);
         }
         temparray = filteredArray;
         filteredArray = [];
@@ -140,7 +142,7 @@ app.filter('filteredString', function() {
       if (arrayOs.length > 0) {
         for (var j = 0; j < temparray.length; j++) {
           var item = temparray[j];
-          filteredArray = loopingOfArray(arrayOs, 'os', x);
+          filteredArray = loopingOfArray(arrayOs, 'os', temparray);
         }
         temparray = filteredArray;
         filteredArray = [];
@@ -149,7 +151,7 @@ app.filter('filteredString', function() {
       if (arrayCamera.length > 0) {
         for (var j = 0; j < temparray.length; j++) {
           var item = temparray[j];
-          filteredArray = loopingOfArray(arrayCamera, 'camera', x);
+          filteredArray = loopingOfArray(arrayCamera, 'camera', temparray);
         }
         temparray = filteredArray;
         filteredArray = [];
