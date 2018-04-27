@@ -73,6 +73,8 @@ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filte
 
 // function for switch case
 functionAcceptAnyString = function(array, selectedItem) {
+  console.log(array,"array");
+  console.log("selectedItem",selectedItem);
   var index = array.indexOf(selectedItem);
   if (index > -1) {
     array.splice(index, 1);
@@ -80,7 +82,6 @@ functionAcceptAnyString = function(array, selectedItem) {
     array.push(selectedItem);
   }
 }
-
 
 /*
  * @description filter for getting list of items based on selected options.
@@ -120,16 +121,13 @@ app.filter('filteredString', function() {
       if (arrayManufacturer.length > 0 || arrayStorage.length > 0 || arrayOs.length > 0 || arrayCamera.length > 0) {
         filteredArray = loopingOfArray(arrayManufacturer, 'manufacturer', x);
       }
-
       if (filteredArray.length > 0) {
         temparray = filteredArray;
         filteredArray = [];
       } else {
         temparray = x;
       }
-
-      console.log("temparray",temparray);
-
+      // console.log("temparray", temparray);
       if (arrayStorage.length > 0) {
         for (var j = 0; j < temparray.length; j++) {
           var item = temparray[j];
