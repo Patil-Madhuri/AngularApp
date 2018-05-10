@@ -9,10 +9,17 @@
  ******************************************************************************/
 app.controller('loginController', function($scope,$state)
 {
-  $scope.email = "madhuri@gmail.com";
-  $scope.password="12345678";
+  $scope.email = "";
+  $scope.password="";
+
+
+
   $scope.home = function()
   {
+    var emailvalue = document.getElementById('email').value;
+    var passwordvalue = document.getElementById('password').value;
+    console.log("email: ",emailvalue);
+    console.log("password: ", passwordvalue);
        $state.go('home');
   }
 });

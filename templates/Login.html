@@ -15,7 +15,7 @@
         <md-input-container >
           <label>Email</label>
           <input name="email" ng-model="email" required md-maxlength="25" minlength="10"
-            ng-pattern='/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/' >
+            ng-pattern='/(^[\w]+@+[a-zA-Z]+\.+[a-zA-z]{2,3}$)/' id="email" >
           <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty" >
             <div ng-message="required"></div>
           </div>
@@ -23,7 +23,7 @@
 
         <md-input-container>
           <label>Password</label>
-          <input type="password" name="password" ng-model="password" required md-maxlength="25" minlength="8">
+          <input type="password" name="password" ng-model="password" required md-maxlength="25" minlength="8" id="password">
           <div ng-messages="userForm.password.$error" ng-show="userForm.password.$dirty" >
             <div ng-message="required"></div>
           </div>
