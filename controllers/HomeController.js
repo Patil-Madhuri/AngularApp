@@ -23,16 +23,15 @@
    $scope.sendLogin = function() {
      $state.go('login');
    }
-
    $scope.getData = readJson.getJson();
    $scope.getData.then(function(response) {
      $scope.jsonRecord = response;
    })
-
    /*
     * @description auto load the dashboard.html inside nested ui-view.
     */
    $state.go('home.dashboard');
+
    var count;
    if (count % 2 == 0) {
      $scope.isVisible = false;
@@ -69,6 +68,12 @@
    $scope.arrayStorage = selectedStorageItems;
    $scope.arrayOs = selectedOsItems;
    $scope.arrayCamera = selectedCameraItems;
+
+   // $scope.goToCart = function() {
+   //   console.log("hi..........");
+   //   $state.go("home.cart");
+   // }
+
  });
 
  // function for switch case
@@ -177,62 +182,62 @@
  //
  //
  //        if (filteredArray.length > 0)
-//{
-   //          temparray = filteredArray;
-   //
-   //
-  // filteredArray = [];
-   //        } else {
-   //          temparray = x;
-   //        }
-   //
-   //        if (arrayStorage.length > 0) {
-   //          for (var j = 0; j < temparray.length; j++) {
-   //            var item = temparray[j];
-   //
-   //            for (var i = 0; i < arrayStorage.length; i++) {
-   //              var selectedItem = arrayStorage[i];
-   //              if (item.specs.storage == selectedItem) {
-   //                filteredArray.push(item);
-   //              }
-   //            }
-   //          }
-   //          temparray = filteredArray;
-   //          filteredArray = [];
-   //        }
-   //
-   //        if (arrayOs.length > 0) {
-   //          for (var j = 0; j < temparray.length; j++) {
-   //            var item = temparray[j];
-   //
-   //            for (var i = 0; i < arrayOs.length; i++) {
-   //              var selectedItem = arrayOs[i];
-   //              if (item.specs.os == selectedItem) {
-   //                filteredArray.push(item);
-   //              }
-   //            }
-   //          }
-   //          temparray = filteredArray;
-   //          filteredArray = [];
-   //        }
-   //
-   //        if (arrayCamera.length > 0) {
-   //          for (var j = 0; j < temparray.length; j++) {
-   //            var item = temparray[j];
-   //
-   //            for (var i = 0; i < arrayCamera.length; i++) {
-   //              var selectedItem = arrayCamera[i];
-   //              if (item.specs.camera == selectedItem) {
-   //                filteredArray.push(item);
-   //              }
-   //            }
-   //          }
-   //          temparray = filteredArray;
-   //          filteredArray = [];
-   //        }
-   //      } else {
-   //        temparray = x;
-   //      }
-   //    }
-   //    return temparray;
-   //  }
+ //{
+ //          temparray = filteredArray;
+ //
+ //
+ // filteredArray = [];
+ //        } else {
+ //          temparray = x;
+ //        }
+ //
+ //        if (arrayStorage.length > 0) {
+ //          for (var j = 0; j < temparray.length; j++) {
+ //            var item = temparray[j];
+ //
+ //            for (var i = 0; i < arrayStorage.length; i++) {
+ //              var selectedItem = arrayStorage[i];
+ //              if (item.specs.storage == selectedItem) {
+ //                filteredArray.push(item);
+ //              }
+ //            }
+ //          }
+ //          temparray = filteredArray;
+ //          filteredArray = [];
+ //        }
+ //
+ //        if (arrayOs.length > 0) {
+ //          for (var j = 0; j < temparray.length; j++) {
+ //            var item = temparray[j];
+ //
+ //            for (var i = 0; i < arrayOs.length; i++) {
+ //              var selectedItem = arrayOs[i];
+ //              if (item.specs.os == selectedItem) {
+ //                filteredArray.push(item);
+ //              }
+ //            }
+ //          }
+ //          temparray = filteredArray;
+ //          filteredArray = [];
+ //        }
+ //
+ //        if (arrayCamera.length > 0) {
+ //          for (var j = 0; j < temparray.length; j++) {
+ //            var item = temparray[j];
+ //
+ //            for (var i = 0; i < arrayCamera.length; i++) {
+ //              var selectedItem = arrayCamera[i];
+ //              if (item.specs.camera == selectedItem) {
+ //                filteredArray.push(item);
+ //              }
+ //            }
+ //          }
+ //          temparray = filteredArray;
+ //          filteredArray = [];
+ //        }
+ //      } else {
+ //        temparray = x;
+ //      }
+ //    }
+ //    return temparray;
+ //  }

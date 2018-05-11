@@ -1,20 +1,18 @@
-
-<div layout-padding>
-<p class="cartHeading">
-<h1>Shopping Cart</h1>
-</p>
-<table>
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Sub-Total</th>
-    </tr>
-    <tr>
-
-    </tr>
-</table>
-
-
+<div >
+  <p class="cartHeading">
+    <b>Shopping Cart</b>
+  </p>
+  </div>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-2">
+      <h4>Price</h4></div>
+    <div class="col-sm-2">
+      <h4>Quantity</h4></div>
+    <div class="col-sm-2">
+      <h4>SubTotal</h4></div>
+  </div>
+<md-divider></md-divider>
+<div ng-repeat="mobile in itemsInCart">
+  {{mobile}}
 </div>

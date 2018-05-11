@@ -14,9 +14,11 @@
     </md-button>
     <h2>Mobile App</h2>
     <span flex></span>
+    <a ui-sref="home.cart">
     <md-button class="md-primary md-raised">
     Cart<md-icon><i class="material-icons">add_shopping_cart</i></md-icon>
     <span ng-bind="arrayOfCart.length"></span></md-button>
+    </a>
     <md-button ng-click="sendLogin()" class="md-primary md-raised" aria-label="logout">
       <span>logout</span>
     </md-button>

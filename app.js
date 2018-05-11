@@ -7,7 +7,7 @@
  *  @version        : 1.0
  *  @since          : 16-04-2018
  ********************************************************************************/
-var app = angular.module('myApp', ['ui.router', 'ngMaterial', 'angular.filter']);
+var app = angular.module('myApp', ['ui.router', 'ngMaterial', 'angular.filter','ngAnimate']);
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('register', {

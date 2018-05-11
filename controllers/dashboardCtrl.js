@@ -7,7 +7,7 @@
  *  @version        : 1.0
  *  @since          : 16-04-2018
  ******************************************************************************/
-app.controller('dashboardCtrl', function($scope, $mdDialog,$rootScope) {
+app.controller('dashboardCtrl', function($scope, $mdDialog,$rootScope,$state) {
   $scope.showDialog = function(clickEvent, item) {
     $mdDialog.show({
       locals: {
@@ -51,13 +51,13 @@ app.controller('dashboardCtrl', function($scope, $mdDialog,$rootScope) {
             $rootScope.arrayOfCart = $scope.cartArray;
            // console.log( $scope.cartArray);
           }
-        
+
       }
 
     }
-    
+
   };
-  
+
   /*
     * @description DialogController for handling dialog controls.
     * @param {service} $scope is a service
