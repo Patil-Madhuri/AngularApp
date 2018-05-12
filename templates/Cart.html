@@ -13,6 +13,37 @@
       <h4>SubTotal</h4></div>
   </div>
 <md-divider></md-divider>
-<div ng-repeat="mobile in itemsInCart">
-  {{mobile}}
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="product in itemsInCart">
+    <div class="row">
+      <div class="col-sm-2">
+        <img ng-src="{{ product.image.small }}" alt="image caption" style=" width: 150px;">
+      </div>
+      <div class="col-sm-2">
+        <h4><b>{{product.name}}</b></h4>
+
+      </div>
+      <div class="col-sm-2">
+        <h4>{{product.price | currency}}</h4></div>
+      <div class="col-sm-2">
+        <select ng-options="option for option in listForQuantity" ng-model="selectedItem">
+        </select>
+      </div>
+
+      <div class="col-sm-2">
+        <h4>{{product.sum | currency}}</h4>
+
+      </div>
+      <!-- <div class="col-sm-2">
+      <input class="btn btn-danger" type="button" ng-click="removeItemCart(product)" value="Remove" />
+    </div> -->
+          </li>
+    </div>
+  </li>
+</ul>
+  <div class="col-sm-6"></div>
+  <div class="col-sm-2">
+    <h4><b>TotalPrice</b></h4></div>
+<div class="col-sm-2">
+  <h4>{{total1 |currency }}</h4></div>
 </div>
