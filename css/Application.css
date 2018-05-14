@@ -17,7 +17,7 @@
   display : block;
   width:350px;
 }
-.loginForm.cartHeading
+.loginForm
 {
   display:block;
 }
@@ -37,7 +37,7 @@
 --------------------*/
 .md-sidenav-left
 {
-  margin-top:4.0em;
+  margin-top:4.5em;
   width:200px;
   position: fixed;
 }

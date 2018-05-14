@@ -6,8 +6,7 @@
  *  @since          : 16-04-2018
  **********************************************************************************/ -->
 <md-toolbar class= "toolBar">
-  <div class="md-toolbar-tools" >
-<!-- ng-click="toggleLeft()" -->
+  <div class="md-toolbar-tools">
     <md-button ng-click="toggleLeft();ShowHide()" class="md-primary md-raised md-icon-button" aria-label="sidebar">
       <span><md-icon><i class="material-icons">menu</i></md-icon></span>
 
@@ -17,7 +16,7 @@
     <a ui-sref="home.cart">
     <md-button class="md-primary md-raised">
     Cart<md-icon><i class="material-icons">add_shopping_cart</i></md-icon>
-    <span ng-bind="arrayOfCart.length"></span></md-button>
+      {{arrayOfCart.length}}
     </a>
     <md-button ng-click="sendLogin()" class="md-primary md-raised" aria-label="logout">
       <span>logout</span>

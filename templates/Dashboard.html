@@ -27,11 +27,14 @@
 
             <md-card-title>
               <md-card-title-text>
-                <span>Manufacturer : {{ x.specs.manufacturer+" " }}</span>
-                <span>Storage:  {{ x.specs.storage+" " }}Gb</span>
-                <span>OS:  {{x.specs.os+" " }}</span>
-                <span>Camera : {{ x.specs.camera+" " }}Mpx</span>
-                <span>Price: $ {{x.price+" "}}</span>
+                <span><strong>Manufacturer :</strong> {{ x.specs.manufacturer+" " }}</span>
+                <span><strong>Storage:</strong>  {{ x.specs.storage+" " }}Gb</span>
+                <span><strong>OS:</strong>  {{x.specs.os+" " }}</span>
+                <span><strong>Camera :</strong> {{ x.specs.camera+" " }}Mpx</span>
+                <span><strong>Price:</strong>$ {{x.price+" "}}</span>
+                <span><strong>Customer Reviews:</strong>
+                  <jk-rating-stars rating="firstRate" ></jk-rating-stars>
+            <div style="width: 50px">{{firstRate}} Stars</div></span>
               </md-card-title-text>
             </md-card-title>
             <md-card-actions layout="row" layout-align="center center">

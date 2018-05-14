@@ -1,4 +1,4 @@
-<div >
+<div>
   <p class="cartHeading">
     <b>Shopping Cart</b>
   </p>
@@ -17,7 +17,7 @@
   <li class="list-group-item" ng-repeat="product in itemsInCart">
     <div class="row">
       <div class="col-sm-2">
-        <img ng-src="{{ product.image.small }}" alt="image caption" style=" width: 150px;">
+        <img ng-src="{{ product.image.small }}" alt="image caption" style="width: 150px;">
       </div>
       <div class="col-sm-2">
         <h4><b>{{product.name}}</b></h4>
@@ -26,17 +26,18 @@
       <div class="col-sm-2">
         <h4>{{product.price | currency}}</h4></div>
       <div class="col-sm-2">
-        <select ng-options="option for option in listForQuantity" ng-model="selectedItem">
-        </select>
+        <select ng-options="option for option in listForQuantity" ng-model="selectedMobile"
+          ng-change="selectChanged(product,selectedMobile)" ng-init="selectChanged(product,1)">
+         </select>
       </div>
 
       <div class="col-sm-2">
         <h4>{{product.sum | currency}}</h4>
 
       </div>
-      <!-- <div class="col-sm-2">
+      <div class="col-sm-2">
       <input class="btn btn-danger" type="button" ng-click="removeItemCart(product)" value="Remove" />
-    </div> -->
+    </div>
           </li>
     </div>
   </li>
