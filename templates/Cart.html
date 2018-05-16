@@ -2,8 +2,17 @@
   <p class="cartHeading">
     <b>Shopping Cart</b>
   </p>
+  <div ng-model="itemsInCart" ng-show="itemsInCart.length===0">
+    <h1>Cart is Empty...!</h1>
   </div>
-  <div class="row">
+</div>
+
+
+<!-- <div  ng-hide ="itemsInCart.length===0">
+  <div ng-show="itemsInCart.length>=0"> -->
+
+<div ng-if="itemsInCart">
+  <div class="row" ng-hide="itemsInCart.length===0">
     <div class="col-sm-4"></div>
     <div class="col-sm-2">
       <h4>Price</h4></div>
@@ -11,13 +20,16 @@
       <h4>Quantity</h4></div>
     <div class="col-sm-2">
       <h4>SubTotal</h4></div>
+    <div class="col-sm-2">
+      <h4>Remove</h4></div>
   </div>
-<md-divider></md-divider>
+
+
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="product in itemsInCart">
     <div class="row">
       <div class="col-sm-2">
-        <img ng-src="{{ product.image.small }}" alt="image caption" style="width: 150px;">
+        <img ng-src="{{ product.image.small}}" alt="image caption" style="width: 150px;">
       </div>
       <div class="col-sm-2">
         <h4><b>{{product.name}}</b></h4>
@@ -26,8 +38,7 @@
       <div class="col-sm-2">
         <h4>{{product.price | currency}}</h4></div>
       <div class="col-sm-2">
-        <select ng-options="option for option in listForQuantity" ng-model="selectedMobile"
-          ng-change="selectChanged(product,selectedMobile)" ng-init="selectChanged(product,1)">
+        <select ng-options="option for option in listForQuantity" ng-model="selectedMobile" ng-change="selectChanged(product,selectedMobile)" ng-init="selectChanged(product,1)">
          </select>
       </div>
 
@@ -36,15 +47,20 @@
 
       </div>
       <div class="col-sm-2">
-      <input class="btn btn-danger" type="button" ng-click="removeItemCart(product)" value="Remove" />
-    </div>
-          </li>
+        <!-- <button class="btn btn-danger" ng-click="removeItemCart(product)" value="Remove" >Remove
+    </button> -->
+        <md-button class="md-warn" ng-click="removeItemFromCart(product)">
+          <md-icon><i class="material-icons">remove_shopping_cart</i></md-icon>
+      </div>
     </div>
   </li>
+
 </ul>
+<div ng-hide="itemsInCart.length===0">
   <div class="col-sm-6"></div>
   <div class="col-sm-2">
     <h4><b>TotalPrice</b></h4></div>
-<div class="col-sm-2">
-  <h4>{{total1 |currency }}</h4></div>
+  <div class="col-sm-2">
+    <h4>{{total1 |currency }}</h4></div>
+</div>
 </div>

@@ -30,7 +30,8 @@ app.controller('dashboardCtrl', function($scope, $mdDialog,$rootScope,$state) {
       {
         $scope.cartArray.push(mobileData);
         $rootScope.arrayOfCart = $scope.cartArray;
-          //console.log( $scope.cartArray);
+          console.log("scope", $scope.cartArray);
+          console.log("rootScope",   $rootScope.arrayOfCart);
       }
       else
       {

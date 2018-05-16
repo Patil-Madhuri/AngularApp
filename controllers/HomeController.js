@@ -8,10 +8,12 @@
   *  @since          : 16-04-2018
   ******************************************************************************/
  app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filter) {
+   $scope.home="home";
    var selectedManufacturerItems = [];
    var selectedStorageItems = [];
    var selectedOsItems = [];
    var selectedCameraItems = [];
+
    $scope.toggleLeft = buildToggler('left');
    $scope.toggleRight = buildToggler('right');
 
@@ -32,6 +34,7 @@
     */
    $state.go('home.dashboard');
 
+
    var count;
    if (count % 2 == 0) {
      $scope.isVisible = false;
@@ -42,6 +45,14 @@
      $scope.isVisible = !$scope.isVisible;
      count++;
    }
+
+   $scope.sendCart=function(){
+     $scope.cart="cart";
+     $state.go('home.cart');
+
+   };
+
+
    /*
     * @description function to maintain checked item into selected list.
     * @param {string} category is a string from list of categories
