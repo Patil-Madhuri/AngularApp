@@ -1,5 +1,7 @@
 app.controller("cartCtrl", function($scope, $rootScope) {
-  $rootScope.itemsInCart = $rootScope.arrayOfCart;
+  $rootScope.flag = false;
+     $rootScope.itemsInCart = JSON.parse(localStorage.getItem('CartArray'));
+  // $rootScope.itemsInCart = $rootScope.arrayOfCart;
   console.log("Cart controller: ", $rootScope.itemsInCart.length);
 
   $scope.listForQuantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
@@ -20,7 +22,8 @@ app.controller("cartCtrl", function($scope, $rootScope) {
     if (index > -1) {
       $scope.itemsInCart.splice(index, 1);
       $scope.total1 = $scope.total1 - product.sum;
-
+      localStorage.setItem("CartArray", JSON.stringify($scope.itemsInCart));
+      $rootScope.arrayOfCart = JSON.parse(localStorage.getItem('CartArray'));
     }
   }
 });

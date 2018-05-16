@@ -1,9 +1,16 @@
-<div>
+<div  align="center">
   <p class="cartHeading">
-    <b>Shopping Cart</b>
+    <h1>Shopping Cart</h1>
   </p>
   <div ng-model="itemsInCart" ng-show="itemsInCart.length===0">
-    <h1>Cart is Empty...!</h1>
+    <img src="images/cart-empty.jpg" width="400px"/>
+
+  </div>
+  <div ng-show="itemsInCart.length===0">
+    <a ui-sref="home.dashboard">
+    <md-button class="md-primary md-raised">Continue Shopping</md-button>
+  </a>
+</div>
   </div>
 </div>
 
@@ -62,5 +69,10 @@
     <h4><b>TotalPrice</b></h4></div>
   <div class="col-sm-2">
     <h4>{{total1 |currency }}</h4></div>
+    <div ng-show="itemsInCart.length>=0">
+      <a ui-sref="home.dashboard">
+      <md-button class="md-primary md-raised">Continue Shopping</md-button>
+    </a>
+  </div>
 </div>
 </div>

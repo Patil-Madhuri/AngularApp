@@ -7,21 +7,35 @@
   *  @version        : 1.0
   *  @since          : 16-04-2018
   ******************************************************************************/
- app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filter) {
-   $scope.home="home";
+ app.controller('homeCtrl', function($scope, $mdSidenav, $state, readJson, $filter, $rootScope) {
+   $scope.home = "home";
    var selectedManufacturerItems = [];
    var selectedStorageItems = [];
    var selectedOsItems = [];
    var selectedCameraItems = [];
-
+   $rootScope.arrayOfCart = JSON.parse(localStorage.getItem('CartArray'));
    $scope.toggleLeft = buildToggler('left');
    $scope.toggleRight = buildToggler('right');
 
    function buildToggler(componentId) {
-     return function() {
-       $mdSidenav(componentId).open();
-     };
-   }
+    return function() {
+      $mdSidenav(componentId).toggle();
+      var isOpen=$mdSidenav(componentId).isOpen();
+      if(isOpen)
+      {
+        document.getElementById('dashboard').style.marginLeft='200px';
+      }
+      else{
+        document.getElementById('dashboard').style.marginLeft='0px';
+
+      }
+    };
+  }
+   // function buildToggler(componentId) {
+   //   return function() {
+   //     $mdSidenav(componentId).open();
+   //   };
+   // }
    $scope.sendLogin = function() {
      $state.go('login');
    }
@@ -41,13 +55,12 @@
    } else {
      $scope.isVisible = true;
    }
-   $scope.ShowHide = function() {
-     $scope.isVisible = !$scope.isVisible;
-     count++;
-   }
+   // $scope.ShowHide = function() {
+   //   $scope.isVisible = !$scope.isVisible;
+   //   count++;
+   // }
 
-   $scope.sendCart=function(){
-     $scope.cart="cart";
+   $scope.sendCart = function() {
      $state.go('home.cart');
 
    };
@@ -79,12 +92,6 @@
    $scope.arrayStorage = selectedStorageItems;
    $scope.arrayOs = selectedOsItems;
    $scope.arrayCamera = selectedCameraItems;
-
-   // $scope.goToCart = function() {
-   //   console.log("hi..........");
-   //   $state.go("home.cart");
-   // }
-
  });
 
  // function for switch case
@@ -101,13 +108,13 @@
   * @description filter for getting list of items based on selected options.
   * @return {array} filteredArray list using the selected items .
   */
- loopingOfArray = function(array, category, x) {
+ loopingOfArray = function(array, category, jsonData) {
    // console.log(array);
    // console.log(category);
    // console.log(x);
    var filteredArray = [];
-   for (var j = 0; j < x.length; j++) {
-     var item = x[j];
+   for (var j = 0; j < jsonData.length; j++) {
+     var item = jsonData[j];
      for (var i = 0; i < array.length; i++) {
        var selectedItem = array[i];
        if (item.specs[category] == selectedItem) {
@@ -120,7 +127,7 @@
  }
 
  /*
-  * @param {array} x is a list of items from ng-repeat
+  * @param {array} jsonData is a list of items from ng-repeat
   * @param {array} arrayManufacturer is list of manufacturer selected options
   * @param {array} arrayStorage is list of storage selected options
   * @param {array} arrayOs is list of Os selected options
@@ -128,18 +135,18 @@
   * @return {array} list of filteredArray items.
   */
  app.filter('filteredString', function() {
-   return function(x, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
+   return function(jsonData, arrayManufacturer, arrayStorage, arrayOs, arrayCamera) {
      var filteredArray = [];
      var temparray = [];
-     if (x != undefined) {
+     if (jsonData != undefined) {
        if (arrayManufacturer.length > 0 || arrayStorage.length > 0 || arrayOs.length > 0 || arrayCamera.length > 0) {
-         filteredArray = loopingOfArray(arrayManufacturer, 'manufacturer', x);
+         filteredArray = loopingOfArray(arrayManufacturer, 'manufacturer', jsonData);
        }
        if (filteredArray.length > 0) {
          temparray = filteredArray;
          filteredArray = [];
        } else {
-         temparray = x;
+         temparray = jsonData;
        }
        // console.log("temparray", temparray);
        if (arrayStorage.length > 0) {
@@ -169,7 +176,7 @@
          filteredArray = [];
        }
      } else {
-       temparray = x;
+       temparray = jsonData;
      }
      return temparray;
    };

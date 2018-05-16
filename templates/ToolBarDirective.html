@@ -5,19 +5,19 @@
  *  @version        : 1.0
  *  @since          : 16-04-2018
  **********************************************************************************/ -->
-<md-toolbar class= "toolBar">
+<md-toolbar class="toolBar">
   <div class="md-toolbar-tools">
-    <md-button ng-click="toggleLeft();ShowHide()" ng-model="home" ng-show="home" ng-hide="cart" class="md-primary md-raised md-icon-button" aria-label="sidebar">
-      <span><md-icon><i class="material-icons">menu</i></md-icon></span>
-
-    </md-button>
+      <md-button ng-click="toggleLeft()" ng-if="flag" class="md-primary md-raised md-icon-button" aria-label="sidebar">
+        <md-icon><i class="material-icons">menu</i></md-icon>
+      </md-button>
     <h2>Mobile App</h2>
     <span flex></span>
     <!-- <a ui-sref="home.cart"> -->
     <md-button class="md-primary md-raised" ng-click="sendCart()">
-    Cart<md-icon><i class="material-icons">add_shopping_cart</i></md-icon>
+      Cart
+      <md-icon><i class="material-icons">add_shopping_cart</i></md-icon>
       {{arrayOfCart.length}}
-    <!-- </a> -->
+      <!-- </a> -->
     </md-button>
     <md-button ng-click="sendLogin()" class="md-primary md-raised" aria-label="logout">
       <span>logout</span>
